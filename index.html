@@ -189,7 +189,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/10/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/" class="post-title-link" itemprop="url">数据结构绪论</a>
+            <a href="/2021/10/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/" class="post-title-link" itemprop="url">数据结构绪论和算法</a>
         </h2>
 
         <div class="post-meta">
@@ -200,7 +200,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-10-14 10:27:47 / Modified: 10:44:37" itemprop="dateCreated datePublished" datetime="2021-10-14T10:27:47+08:00">2021-10-14</time>
+              <time title="Created: 2021-10-14 10:27:47 / Modified: 11:34:14" itemprop="dateCreated datePublished" datetime="2021-10-14T10:27:47+08:00">2021-10-14</time>
             </span>
 
           
@@ -214,7 +214,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="1-基本概念和术语"><a href="#1-基本概念和术语" class="headerlink" title="1.基本概念和术语"></a>1.基本概念和术语</h1><p><strong>数据</strong>：描述客观事物的符号，计算机中可以操作的对象，是能被计算机识别，并输入到计算机处理的符号集合。</p>
+          <p>#<center>数据结构</center></p>
+<h1 id="1-基本概念和术语"><a href="#1-基本概念和术语" class="headerlink" title="1.基本概念和术语"></a>1.基本概念和术语</h1><p><strong>数据</strong>：描述客观事物的符号，计算机中可以操作的对象，是能被计算机识别，并输入到计算机处理的符号集合。</p>
 <p><strong>数据元素</strong>：是组成数据、有一定意义的基本单位，在计算机中通常作为整体处理。</p>
 <p><strong>数据结构</strong>：是相互之间存在一种或多种特定关系的数据元素的集合。</p>
 <h1 id="2-逻辑结构和物理结构"><a href="#2-逻辑结构和物理结构" class="headerlink" title="2.逻辑结构和物理结构"></a>2.逻辑结构和物理结构</h1><h2 id="2-1-逻辑结构"><a href="#2-1-逻辑结构" class="headerlink" title="2.1 逻辑结构"></a>2.1 逻辑结构</h2><p><strong>逻辑结构</strong>：数据对象中数据元素之间的相互关系</p>
@@ -224,7 +225,18 @@
 <p><strong>图形结构</strong>：数据元素是多对多的关系</p>
 <h2 id="2-2-物理结构"><a href="#2-2-物理结构" class="headerlink" title="2.2 物理结构"></a>2.2 物理结构</h2><p><strong>物理结构</strong>：数据的逻辑结构在计算机中的存储形式</p>
 <p><strong>顺序存储结构</strong></p>
-<p><strong>链式存储结构</strong></p>
+<p><strong>链式存储结构</strong><br>#<center>算法</center></p>
+<h1 id="1-算法定义"><a href="#1-算法定义" class="headerlink" title="1.算法定义"></a>1.算法定义</h1><p><strong>算法</strong>是解决特定问题求解步骤的描述，在计算机中表现为指令的有限序列，并且每条指令表示一个或多个操作</p>
+<h1 id="2-算法特性"><a href="#2-算法特性" class="headerlink" title="2.算法特性"></a>2.算法特性</h1><p>输入、 输出、 有穷性、 确定性、 可行性</p>
+<h1 id="3-算法设计的要求"><a href="#3-算法设计的要求" class="headerlink" title="3.算法设计的要求"></a>3.算法设计的要求</h1><p>正确性、 可读性、 健壮性、 时间效率高和存储量低</p>
+<h1 id="4-算法效率的度量方法"><a href="#4-算法效率的度量方法" class="headerlink" title="4.算法效率的度量方法"></a>4.算法效率的度量方法</h1><p>判断一个算法的效率时，函数中的常数和其他次要项常常可以忽略，而更应该关注主项（最高高阶项）的阶数。</p>
+<h1 id="5算法时间复杂度"><a href="#5算法时间复杂度" class="headerlink" title="5算法时间复杂度"></a>5算法时间复杂度</h1><p><strong>定义</strong>:算法的时间度量，记作：T(n) = O(f(n))。表示随问题规模的n的增大，算法执行时间的增长率和f(n)的增长率相同，称为算法的渐进时间复杂度，简称时间复杂度。</p>
+<h2 id="5-1推导大O阶"><a href="#5-1推导大O阶" class="headerlink" title="5.1推导大O阶"></a>5.1推导大O阶</h2><pre><code>1.用常数1取代运行时间中的所有假发常数
+2.在修改后的运行函数中，只保留最高阶项
+3.如果最高阶存在且不是1，则去除与这个项相乘的常数。
+</code></pre>
+<h2 id="5-2常见的时间复杂度"><a href="#5-2常见的时间复杂度" class="headerlink" title="5.2常见的时间复杂度"></a>5.2常见的时间复杂度</h2><pre><code>O(1)&lt;O(logn)&lt;O(n)&lt;O(nlogn)&lt;O(n^2)&lt;O(n^3)&lt;O(2^n)&lt;O(n!)&lt;O(n^n)
+</code></pre>
 
       
     </div>

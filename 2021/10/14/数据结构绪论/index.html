@@ -20,17 +20,17 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="1.基本概念和术语数据：描述客观事物的符号，计算机中可以操作的对象，是能被计算机识别，并输入到计算机处理的符号集合。 数据元素：是组成数据、有一定意义的基本单位，在计算机中通常作为整体处理。 数据结构：是相互之间存在一种或多种特定关系的数据元素的集合。 2.逻辑结构和物理结构2.1 逻辑结构逻辑结构：数据对象中数据元素之间的相互关系 集合结构：集合结构中的数据元素除了属于同一个集合外，他们之间没有">
+  <meta name="description" content="#数据结构 1.基本概念和术语数据：描述客观事物的符号，计算机中可以操作的对象，是能被计算机识别，并输入到计算机处理的符号集合。 数据元素：是组成数据、有一定意义的基本单位，在计算机中通常作为整体处理。 数据结构：是相互之间存在一种或多种特定关系的数据元素的集合。 2.逻辑结构和物理结构2.1 逻辑结构逻辑结构：数据对象中数据元素之间的相互关系 集合结构：集合结构中的数据元素除了属于同一个集合外，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据结构绪论">
+<meta property="og:title" content="数据结构绪论和算法">
 <meta property="og:url" content="http://example.com/2021/10/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/index.html">
 <meta property="og:site_name" content="dls-hxc">
-<meta property="og:description" content="1.基本概念和术语数据：描述客观事物的符号，计算机中可以操作的对象，是能被计算机识别，并输入到计算机处理的符号集合。 数据元素：是组成数据、有一定意义的基本单位，在计算机中通常作为整体处理。 数据结构：是相互之间存在一种或多种特定关系的数据元素的集合。 2.逻辑结构和物理结构2.1 逻辑结构逻辑结构：数据对象中数据元素之间的相互关系 集合结构：集合结构中的数据元素除了属于同一个集合外，他们之间没有">
+<meta property="og:description" content="#数据结构 1.基本概念和术语数据：描述客观事物的符号，计算机中可以操作的对象，是能被计算机识别，并输入到计算机处理的符号集合。 数据元素：是组成数据、有一定意义的基本单位，在计算机中通常作为整体处理。 数据结构：是相互之间存在一种或多种特定关系的数据元素的集合。 2.逻辑结构和物理结构2.1 逻辑结构逻辑结构：数据对象中数据元素之间的相互关系 集合结构：集合结构中的数据元素除了属于同一个集合外，">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-10-14T02:27:47.000Z">
-<meta property="article:modified_time" content="2021-10-14T02:44:37.468Z">
+<meta property="article:modified_time" content="2021-10-14T03:34:14.731Z">
 <meta property="article:author" content="dls">
-<meta property="article:tag" content="第一章 数据结构绪论">
+<meta property="article:tag" content="数据结构绪论和算法">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://example.com/2021/10/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>数据结构绪论 | dls-hxc</title>
+  <title>数据结构绪论和算法 | dls-hxc</title>
   
 
 
@@ -194,7 +194,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          数据结构绪论
+          数据结构绪论和算法
         </h1>
 
         <div class="post-meta">
@@ -205,7 +205,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-10-14 10:27:47 / Modified: 10:44:37" itemprop="dateCreated datePublished" datetime="2021-10-14T10:27:47+08:00">2021-10-14</time>
+              <time title="Created: 2021-10-14 10:27:47 / Modified: 11:34:14" itemprop="dateCreated datePublished" datetime="2021-10-14T10:27:47+08:00">2021-10-14</time>
             </span>
 
           
@@ -219,7 +219,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="1-基本概念和术语"><a href="#1-基本概念和术语" class="headerlink" title="1.基本概念和术语"></a>1.基本概念和术语</h1><p><strong>数据</strong>：描述客观事物的符号，计算机中可以操作的对象，是能被计算机识别，并输入到计算机处理的符号集合。</p>
+        <p>#<center>数据结构</center></p>
+<h1 id="1-基本概念和术语"><a href="#1-基本概念和术语" class="headerlink" title="1.基本概念和术语"></a>1.基本概念和术语</h1><p><strong>数据</strong>：描述客观事物的符号，计算机中可以操作的对象，是能被计算机识别，并输入到计算机处理的符号集合。</p>
 <p><strong>数据元素</strong>：是组成数据、有一定意义的基本单位，在计算机中通常作为整体处理。</p>
 <p><strong>数据结构</strong>：是相互之间存在一种或多种特定关系的数据元素的集合。</p>
 <h1 id="2-逻辑结构和物理结构"><a href="#2-逻辑结构和物理结构" class="headerlink" title="2.逻辑结构和物理结构"></a>2.逻辑结构和物理结构</h1><h2 id="2-1-逻辑结构"><a href="#2-1-逻辑结构" class="headerlink" title="2.1 逻辑结构"></a>2.1 逻辑结构</h2><p><strong>逻辑结构</strong>：数据对象中数据元素之间的相互关系</p>
@@ -229,7 +230,18 @@
 <p><strong>图形结构</strong>：数据元素是多对多的关系</p>
 <h2 id="2-2-物理结构"><a href="#2-2-物理结构" class="headerlink" title="2.2 物理结构"></a>2.2 物理结构</h2><p><strong>物理结构</strong>：数据的逻辑结构在计算机中的存储形式</p>
 <p><strong>顺序存储结构</strong></p>
-<p><strong>链式存储结构</strong></p>
+<p><strong>链式存储结构</strong><br>#<center>算法</center></p>
+<h1 id="1-算法定义"><a href="#1-算法定义" class="headerlink" title="1.算法定义"></a>1.算法定义</h1><p><strong>算法</strong>是解决特定问题求解步骤的描述，在计算机中表现为指令的有限序列，并且每条指令表示一个或多个操作</p>
+<h1 id="2-算法特性"><a href="#2-算法特性" class="headerlink" title="2.算法特性"></a>2.算法特性</h1><p>输入、 输出、 有穷性、 确定性、 可行性</p>
+<h1 id="3-算法设计的要求"><a href="#3-算法设计的要求" class="headerlink" title="3.算法设计的要求"></a>3.算法设计的要求</h1><p>正确性、 可读性、 健壮性、 时间效率高和存储量低</p>
+<h1 id="4-算法效率的度量方法"><a href="#4-算法效率的度量方法" class="headerlink" title="4.算法效率的度量方法"></a>4.算法效率的度量方法</h1><p>判断一个算法的效率时，函数中的常数和其他次要项常常可以忽略，而更应该关注主项（最高高阶项）的阶数。</p>
+<h1 id="5算法时间复杂度"><a href="#5算法时间复杂度" class="headerlink" title="5算法时间复杂度"></a>5算法时间复杂度</h1><p><strong>定义</strong>:算法的时间度量，记作：T(n) = O(f(n))。表示随问题规模的n的增大，算法执行时间的增长率和f(n)的增长率相同，称为算法的渐进时间复杂度，简称时间复杂度。</p>
+<h2 id="5-1推导大O阶"><a href="#5-1推导大O阶" class="headerlink" title="5.1推导大O阶"></a>5.1推导大O阶</h2><pre><code>1.用常数1取代运行时间中的所有假发常数
+2.在修改后的运行函数中，只保留最高阶项
+3.如果最高阶存在且不是1，则去除与这个项相乘的常数。
+</code></pre>
+<h2 id="5-2常见的时间复杂度"><a href="#5-2常见的时间复杂度" class="headerlink" title="5.2常见的时间复杂度"></a>5.2常见的时间复杂度</h2><pre><code>O(1)&lt;O(logn)&lt;O(n)&lt;O(nlogn)&lt;O(n^2)&lt;O(n^3)&lt;O(2^n)&lt;O(n!)&lt;O(n^n)
+</code></pre>
 
     </div>
 
@@ -239,7 +251,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/" rel="tag"># 第一章 数据结构绪论</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA%E5%92%8C%E7%AE%97%E6%B3%95/" rel="tag"># 数据结构绪论和算法</a>
           </div>
 
         
@@ -310,7 +322,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%9C%AF%E8%AF%AD"><span class="nav-number">1.</span> <span class="nav-text">1.基本概念和术语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84%E5%92%8C%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">2.逻辑结构和物理结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 逻辑结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 物理结构</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%9C%AF%E8%AF%AD"><span class="nav-number">1.</span> <span class="nav-text">1.基本概念和术语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84%E5%92%8C%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">2.逻辑结构和物理结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 逻辑结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 物理结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E7%AE%97%E6%B3%95%E5%AE%9A%E4%B9%89"><span class="nav-number">3.</span> <span class="nav-text">1.算法定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E7%AE%97%E6%B3%95%E7%89%B9%E6%80%A7"><span class="nav-number">4.</span> <span class="nav-text">2.算法特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E7%9A%84%E8%A6%81%E6%B1%82"><span class="nav-number">5.</span> <span class="nav-text">3.算法设计的要求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E7%AE%97%E6%B3%95%E6%95%88%E7%8E%87%E7%9A%84%E5%BA%A6%E9%87%8F%E6%96%B9%E6%B3%95"><span class="nav-number">6.</span> <span class="nav-text">4.算法效率的度量方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5%E7%AE%97%E6%B3%95%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">7.</span> <span class="nav-text">5算法时间复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1%E6%8E%A8%E5%AF%BC%E5%A4%A7O%E9%98%B6"><span class="nav-number">7.1.</span> <span class="nav-text">5.1推导大O阶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2%E5%B8%B8%E8%A7%81%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">7.2.</span> <span class="nav-text">5.2常见的时间复杂度</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
