@@ -198,10 +198,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-10-14 13:10:48 / Modified: 15:46:51" itemprop="dateCreated datePublished" datetime="2021-10-14T13:10:48+08:00">2021-10-14</time>
+              <time title="Created: 2021-10-14 13:10:48" itemprop="dateCreated datePublished" datetime="2021-10-14T13:10:48+08:00">2021-10-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-10-15 09:46:07" itemprop="dateModified" datetime="2021-10-15T09:46:07+08:00">2021-10-15</time>
+              </span>
 
           
 
@@ -304,6 +310,38 @@ Status ListInsert（SqList *L,int i,ElemType e）
     p-&gt;next = s;
     return OK;
 &#125;
+</code></pre>
+<h2 id="3-3单链表的整表创建（尾插法）"><a href="#3-3单链表的整表创建（尾插法）" class="headerlink" title="3.3单链表的整表创建（尾插法）"></a>3.3单链表的整表创建（尾插法）</h2><pre><code>void CreateListTail(LinkList *L,int n)
+&#123;
+    LinkList p,r;
+    int i;
+    srand(time(0));
+    *L=(LinkList)malloc(sizeof(Node));
+    r=*L;
+    for(i=0;i&lt;n;i++)
+    &#123;
+        p=(Node*)mallco(sizeof(Node));
+        p-&gt;data=rand()%100;
+        p-&gt;next=r;
+        r=p;
+    &#125;
+    r-&gt;next=NULL;
+&#125;        
+</code></pre>
+<h1 id="4-单链表结构与顺序存储结构优缺点"><a href="#4-单链表结构与顺序存储结构优缺点" class="headerlink" title="4.单链表结构与顺序存储结构优缺点"></a>4.单链表结构与顺序存储结构优缺点</h1><p><strong>存储分配方式</strong></p>
+<pre><code>顺序存储结构使用一段连续的存储单元依次存储线性表的数据元素
+</code></pre>
+<p><strong>时间性能</strong></p>
+<pre><code>查找：
+    顺序存储结构O(1)
+    单链表O(n)
+插入和删除
+    顺序存储结构时间为O(n)
+    单链表在找出某位置后，时间复杂度为O(1)
+</code></pre>
+<p><strong>空间性能</strong></p>
+<pre><code>顺序存储结构需要预分配存储空间，分大了，浪费，小了容易上溢
+单链表无需预分配存储空间
 </code></pre>
 
       
