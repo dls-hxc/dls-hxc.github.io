@@ -200,7 +200,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-10-15 10:01:51 / Modified: 10:46:36" itemprop="dateCreated datePublished" datetime="2021-10-15T10:01:51+08:00">2021-10-15</time>
+              <time title="Created: 2021-10-15 10:01:51 / Modified: 13:03:41" itemprop="dateCreated datePublished" datetime="2021-10-15T10:01:51+08:00">2021-10-15</time>
             </span>
 
           
@@ -216,13 +216,20 @@
       
           <h1 id="1-静态链表"><a href="#1-静态链表" class="headerlink" title="1.静态链表"></a>1.静态链表</h1><p><strong>静态链表</strong>：用数组描述的链表叫做静态链表</p>
 <p>数组的元素都是由两个数据域组成，data和cur。</p>
+<p>静态链表是为了给<strong>没有指针的高级语言设计</strong>的一种实现单链表能力的方法。无法实现指针的设计语言</p>
 <pre><code>链表说明：
 未被使用的数组元素称为备用链表
 数组第一个元素的cur存放备用链表的第一个结点的下标
 数组最后一个元素的cur存放存放第一个有数值的元素的下标
 </code></pre>
-<p>！<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/20190831214443539.png">静态链表示意图</a></p>
-
+<p><img src="https://img-blog.csdnimg.cn/20190831214443539.png" alt="静态链示意图"></p>
+<pre><code>优点：
+    插入和删除操作时，不用移动元素，改进顺序存储结构中插入和删除操作中需要移动大量元素的缺点。
+缺点：
+    没有解决连续存储分配带来的表长难以确定的问题
+    失去顺序存储结构随机存取的特性
+</code></pre>
+<h1 id="2-循环链表"><a href="#2-循环链表" class="headerlink" title="2.循环链表"></a>2.循环链表</h1>
       
     </div>
 
