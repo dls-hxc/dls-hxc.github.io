@@ -200,7 +200,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-10-15 10:01:51 / Modified: 13:03:41" itemprop="dateCreated datePublished" datetime="2021-10-15T10:01:51+08:00">2021-10-15</time>
+              <time title="Created: 2021-10-15 10:01:51 / Modified: 13:33:30" itemprop="dateCreated datePublished" datetime="2021-10-15T10:01:51+08:00">2021-10-15</time>
             </span>
 
           
@@ -229,7 +229,28 @@
     没有解决连续存储分配带来的表长难以确定的问题
     失去顺序存储结构随机存取的特性
 </code></pre>
-<h1 id="2-循环链表"><a href="#2-循环链表" class="headerlink" title="2.循环链表"></a>2.循环链表</h1>
+<h1 id="2-循环链表"><a href="#2-循环链表" class="headerlink" title="2.循环链表"></a>2.循环链表</h1><p><strong>循环链表</strong>：将单链表中终端结点的指针端由空指针改为指向头结点，头尾相接的单链表。</p>
+<h1 id="3-双向链表"><a href="#3-双向链表" class="headerlink" title="3.双向链表"></a>3.双向链表</h1><p><strong>双向链表</strong>：在单链表的每个结点中，再设置一个指向其前驱结点的指针域。</p>
+<pre><code>双向链表的存储结构
+typedef struct DulNode
+&#123;
+    ElemType data;
+    struct DulNode *prior;
+    struct DulNode *next;
+&#125;DulNode，*DuLinkList;
+</code></pre>
+<p>插入核心算法</p>
+<pre><code>s-&gt;prior=p;
+s-&gt;next=p-&gt;next;
+p-&gt;next-&gt;prior=s;
+p-&gt;next=s;
+</code></pre>
+<p>删除核心算法</p>
+<pre><code>p-&gt;prior-&gt;next=p-&gt;next;
+p-&gt;next-&gt;prior=p-&gt;prior;
+free(p);
+</code></pre>
+
       
     </div>
 
