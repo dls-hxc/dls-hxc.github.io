@@ -175,6 +175,158 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/18/%E6%A0%91%E7%BB%93%E6%9E%84-%E6%A0%91%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="dls">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dls-hxc">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/18/%E6%A0%91%E7%BB%93%E6%9E%84-%E6%A0%91%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">树结构-树结构基础知识</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-10-18 10:25:05" itemprop="dateCreated datePublished" datetime="2021-10-18T10:25:05+08:00">2021-10-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-10-19 11:44:37" itemprop="dateModified" datetime="2021-10-19T11:44:37+08:00">2021-10-19</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>树的定义</strong>：一对多的数据结构，在任意一颗非空树中，（1）有且仅有一个特定的称为根的结点，（2）当n&gt;1时，其余节点可分为m（m&gt;0）个互不相交的有限集。</p>
+<p><strong>结点的度</strong>：结点拥有的子树数。</p>
+<p><strong>树的度</strong>：树内各节点的度的最大值。</p>
+<h1 id="1-树的存储结构"><a href="#1-树的存储结构" class="headerlink" title="1.树的存储结构"></a>1.树的存储结构</h1><h2 id="1-1双亲表示法"><a href="#1-1双亲表示法" class="headerlink" title="1.1双亲表示法"></a>1.1双亲表示法</h2><pre><code>双亲法结构定义
+#define MAX_TREE_SIZE 100
+typedef int TElemType;
+typedef struct PTNode
+&#123;
+    TElemType data;
+    int parent;
+&#125;PTNode;
+
+typedef struct
+&#123;
+    PTNode nodes[MAX_TREE_SIZE];
+    int r,n;  //根的位置和结点数
+&#125;PTree;
+</code></pre>
+<h2 id="1-2孩子表示法"><a href="#1-2孩子表示法" class="headerlink" title="1.2孩子表示法"></a>1.2孩子表示法</h2><pre><code>孩子表示法结构定义
+#define MAX_TREE_SIZE 100
+typedef int TElemType;
+typedef struct CTNode
+&#123;
+    int child;
+    struct CTNode *next;
+&#125;*ChildPtr;
+typedef struct
+&#123;
+    TElemType data;
+    ChildPtr firstchild;
+&#125;CTBox;
+typedef struct 
+&#123;
+    CTBox nodes[MAX_TREE_SIZE];
+    int r,n;
+&#125;CTree;
+</code></pre>
+<h2 id="1-3孩子兄弟表示法"><a href="#1-3孩子兄弟表示法" class="headerlink" title="1.3孩子兄弟表示法"></a>1.3孩子兄弟表示法</h2><p>设置两个指针，分别指向该结点的第一个孩子和此结点的右兄弟</p>
+<pre><code>typedef struct CSNode
+&#123;
+    TElemType data;
+    struct CSNode *firstchild,*rightsib;
+&#125;CSNode,*CSTRee;
+</code></pre>
+<h1 id="2-二叉树"><a href="#2-二叉树" class="headerlink" title="2.二叉树"></a>2.二叉树</h1><p><strong>二叉树的形态</strong>：</p>
+<pre><code>1.空二叉树、2.只有一个根结点、3.根结点只有左子树、4.根结点只有右子树、5.根结点既有左子树又有右子树
+</code></pre>
+<p><strong>特殊二叉树</strong></p>
+<pre><code>1.斜树、2.满二叉树、3.完全二叉树
+</code></pre>
+<h2 id="2-1二叉树的性质"><a href="#2-1二叉树的性质" class="headerlink" title="2.1二叉树的性质"></a>2.1二叉树的性质</h2><pre><code>1.二叉树的第i层上至多有2^(i-1)个结点
+2.深度为k二叉树最多有2^k-1个结点
+3.对任何一个二叉树，如果其终端结点数为n0,度为2的节点数为n2，则n0=n2+1。
+4.具有n个结点的完全二叉树的深度为[log2n]+1,[x]代表不大于x的最大整数。
+</code></pre>
+<h2 id="2-2二叉树的存储结构"><a href="#2-2二叉树的存储结构" class="headerlink" title="2.2二叉树的存储结构"></a>2.2二叉树的存储结构</h2><h3 id="2-2-1顺序存储结构"><a href="#2-2-1顺序存储结构" class="headerlink" title="2.2.1顺序存储结构"></a>2.2.1顺序存储结构</h3><p>按照层序遍历的方式将二叉树的结点存入一维数组，即使结点不存在，也要将设置为”^”。</p>
+<p>顺序存储一般只用于完全二叉树，避免空间的浪费。</p>
+<h3 id="2-2-2二叉链表"><a href="#2-2-2二叉链表" class="headerlink" title="2.2.2二叉链表"></a>2.2.2二叉链表</h3><p><strong>二叉链表</strong>：一个数据域和两个指针域 数据域存放结点数据，指针域分别存放左孩子结点和右孩子结点。</p>
+<pre><code>二叉链表结构定义
+typedef struct BiTNode
+&#123;
+    TElemType data;
+    struct BiTNode *lchid,*rlchid;
+&#125;BiTNode,*BiTree;
+</code></pre>
+<h2 id="2-3遍历二叉树"><a href="#2-3遍历二叉树" class="headerlink" title="2.3遍历二叉树"></a>2.3遍历二叉树</h2><p>从根结点出发，按照某种次序依次访问二叉树中所有结点，使得每个结点被访问一次且仅被访问一次。</p>
+<pre><code>前序遍历
+void PreOrderTraverse(BiTree T)
+&#123;
+    if(T==NULL)
+    &#123;
+        return;
+    &#125;
+    printf(%d,T-&gt;data); //可以更改相应代码实现不同功能
+    PreOrderTraverse(T-&gt;lchild);
+    PreOrderTraverse(T-&gt;rchild);
+&#125;
+</code></pre>
+<p><img src="https://img2020.cnblogs.com/blog/1542838/202104/1542838-20210424224530538-2093730661.png" alt="前序遍历"></p>
+<pre><code>中序遍历
+</code></pre>
+<p><img src="https://img2020.cnblogs.com/blog/1542838/202104/1542838-20210424224545534-104900685.png" alt="中序遍历"></p>
+<pre><code>后序遍历
+</code></pre>
+<p><img src="https://img2020.cnblogs.com/blog/1542838/202104/1542838-20210424224556912-748954266.png" alt="后序遍历"></p>
+<pre><code>层序遍历
+</code></pre>
+<p><img src="http://data.biancheng.net/uploads/allimg/181229/2-1Q2292043234L.gif" alt="层序遍历"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/17/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E4%B8%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1093,12 +1245,12 @@ hexo d -g (可以代替hexo g 和 hexo d)
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
