@@ -175,6 +175,188 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/24/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="dls">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dls-hxc">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/24/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">数据结构：排序算法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-10-24 15:27:01 / Modified: 16:57:26" itemprop="dateCreated datePublished" datetime="2021-10-24T15:27:01+08:00">2021-10-24</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>排序算法</strong>：冒泡排序，简单选择排序，直接插入排序，希尔排序，堆排序，归并排序，快速排序。</p>
+<h2 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1.冒泡排序"></a>1.冒泡排序</h2><p>冒泡排序时间复杂度O(n^2);</p>
+<pre><code>基础冒泡排序
+void BubbleSort0(SqList *L)
+&#123;
+    for(int i=1;i&lt;L-&gt;length;i++)
+    &#123;
+        for(int j=i+1;j&lt;=L-&gt;lenght;j++)
+        &#123;
+            if(L-&gt;r[i]&gt;L-&gt;r[j])
+            &#123;
+                swap(L,i,j);
+            &#125;
+        &#125;
+    &#125;
+&#125;
+正宗冒泡排序
+void BubbleSort(SqList *L)
+&#123;
+    bool flag=true;
+    for(int i=1;i&lt;L-&gt;length;i++)
+    &#123;    
+        flag=false;
+        for(int j=L-&gt;length&amp;&amp;flag;j&gt;i;j--)
+        &#123;    
+            if(L-&gt;r[j]&lt;L-&gt;r[j-1])
+            &#123;
+                flag=true;
+                swap(L,j,j-1);
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h1 id="2-简单选择排序"><a href="#2-简单选择排序" class="headerlink" title="2.简单选择排序"></a>2.简单选择排序</h1><p>简单排序时间复杂度为O(n^2),但是简单排序的性能略优于冒泡排序。</p>
+<pre><code>void SelectSort(SqList *L)
+&#123;
+    for(int i=1;i&lt;L-&gt;length;i++)
+    &#123;
+        int min=i;
+        for(int j=i+1;j&lt;=L-&gt;length;j++)
+        &#123;
+            if(L-&gt;r[min]&gt;L-&gt;r[j])
+            &#123;
+                min=j;
+            &#125;
+        &#125;
+        if(min!=i)
+        &#123;
+            swap(L,i,min);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h1 id="3-直接插入排序"><a href="#3-直接插入排序" class="headerlink" title="3.直接插入排序"></a>3.直接插入排序</h1><p>直接插入排序时间复杂度为O(n^2),性能优于前两者。</p>
+<pre><code>void InsertSort(SqList *L)
+&#123;
+    for(int i=2;i&lt;=L-&gt;length;i++)
+    &#123;
+        if(L-&gt;r[i]&lt;L-&gt;r[i-1])
+        &#123;
+            L-&gt;r[0]=L-&gt;r[j];
+            for(int j=i-1;L-&gt;r[j]&gt;L-&gt;r[0];j--)
+            &#123;
+                L-&gt;r[j+1]=L-&gt;r[j];
+            &#125;
+            L-&gt;r[j+1]=L-&gt;r[0];
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h1 id="4-希尔排序"><a href="#4-希尔排序" class="headerlink" title="4.希尔排序"></a>4.希尔排序</h1><p>插入排序的进阶算法 时间复杂度为O(n^(3/2))。</p>
+<pre><code>void ShellSort(SqList *L)
+&#123;
+    int increment;
+    do
+    &#123;
+        increment=increment/3+1;
+        for(int i=increment+1;i&lt;=L-&gt;length;i++)
+        &#123;
+            if(L-&gt;r[i]&lt;L-&gt;r[i-incrment])
+            &#123;
+                L-&gt;r[0]=L-&gt;r[i];
+                for(int j=i-increment;j&gt;0&amp;&amp;L-&gt;r[0]&lt;L-&gt;r[j];j-=increment)
+                &#123;
+                    L-&gt;r[j+increment]=r[j];
+                &#125;
+                L-&gt;r[j+increment]=L-&gt;r[0];
+            &#125;
+        &#125;
+    &#125;while(increment&gt;1)
+&#125;
+</code></pre>
+<h1 id="5-堆排序"><a href="#5-堆排序" class="headerlink" title="5.堆排序"></a>5.堆排序</h1><p>堆是具有下列性质的完全二叉树：每个结点的值都大于或等于其左右孩子结点的值，称为大顶堆，每个结点的值都小于或等于其左右孩子结点的值，称为小顶堆。<br><img src="http://img0.baidu.com/it/u=2048879350,2155630765&fm=253&app=138&f=JPEG?w=1080&h=468"></p>
+<pre><code>void HeapSort(SqList *L)
+&#123;
+    for(int i=L-&gt;length/2;i&gt;0;i--)
+    &#123;
+        HeapAdjust(L,i,L-&gt;length);
+    &#125;
+    
+    for(int i=L-&gt;lenght;i&gt;1;i--)
+    &#123;
+        swap(L,1,i);
+        HeapAdjust(L,1,i-1);
+    &#125;
+&#125;
+
+void HeapSort(SqList *L,int s,int m)
+&#123;
+    int temp,j;
+    temp=L-&gt;r[s];
+    for(j=2*s;j&lt;m;j*=2)
+    &#123;
+        if(j&lt;m&amp;&amp;L-&gt;r[j]&lt;L-&gt;r[j+1])
+            ++j;
+        if(temp&gt;=L-&gt;r[j])
+            break;
+        L-&gt;r[s]=L-&gt;r[j]
+        s=j;
+    &#125;
+    L-&gt;r[s]=temp;
+&#125;
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1446,87 +1628,6 @@ Status ListInsert（SqList *L,int i,ElemType e）
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/13/%E6%9C%AC%E7%BD%91%E7%AB%99%E5%BB%BA%E7%AB%8B%E6%96%B9%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="dls">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="dls-hxc">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/13/%E6%9C%AC%E7%BD%91%E7%AB%99%E5%BB%BA%E7%AB%8B%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">本网站建立方法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-10-13 17:21:08" itemprop="dateCreated datePublished" datetime="2021-10-13T17:21:08+08:00">2021-10-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-14 10:22:33" itemprop="dateModified" datetime="2021-10-14T10:22:33+08:00">2021-10-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="网址推荐"><a href="#网址推荐" class="headerlink" title="网址推荐"></a>网址推荐</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hetao8775/article/details/115379896?spm=1001.2014.3001.5502">点击查看如何将Hexo托管到github上</a>    </p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hetao8775/article/details/115379784?spm=1001.2014.3001.5501">点击查看Hexo博客开源框架的使用</a>    </p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xiaoliuge01/article/details/50997754?utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~default-1.no_search_link&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~default-1.no_search_link">Hexo搭建独立博客，托管到Github和Coding上教程</a></p>
-<h1 id="hexo命令介绍"><a href="#hexo命令介绍" class="headerlink" title="hexo命令介绍"></a>hexo命令介绍</h1><pre><code>hexo n &quot;文件名&quot; 创建新文章
-
-hexo clean  清理
-
-hexo g 生成
-
-hexo d 部署到github
-
-hexo s 调试
-
-hexo d -g (可以代替hexo g 和 hexo d)
-</code></pre>
-<h1 id="问题解决（持续更新）"><a href="#问题解决（持续更新）" class="headerlink" title="问题解决（持续更新）"></a>问题解决（持续更新）</h1><h2 id="1-hexo本地仓库与github内容不一致"><a href="#1-hexo本地仓库与github内容不一致" class="headerlink" title="1.hexo本地仓库与github内容不一致"></a>1.hexo本地仓库与github内容不一致</h2><pre><code>使用shift+f5进行页面的强制刷新
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1596,12 +1697,12 @@ hexo d -g (可以代替hexo g 和 hexo d)
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
